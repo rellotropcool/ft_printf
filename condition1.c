@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   condition1.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/16 12:47:48 by aule-bre          #+#    #+#             */
+/*   Updated: 2023/11/16 12:47:51 by aule-bre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	write_base(size_t s, char *base, size_t len)
 {
 	if (s >= len)
-		return (write_base(s / len, base, len) +
-			write_base(s % len, base, len));
+		return (write_base(s / len, base, len) + write_base(s % len, base,
+				len));
 	return (write(1, &base[s % len], 1));
 }
 
@@ -29,12 +41,11 @@ int	condit_s(va_list args)
 int	condit_p(va_list args)
 {
 	void	*v;
-	size_t i;
+	size_t	i;
 
-	v = (void*)va_arg(args, void *);
+	v = (void *)va_arg(args, void *);
 	i = (size_t)v;
-	if(!i)
+	if (!i)
 		return (write(1, "(nil)", 5));
-	return (write(1, "0x", 2) +
-		write_base(i, "0123456789abcdef", 16));
+	return (write(1, "0x", 2) + write_base(i, "0123456789abcdef", 16));
 }
