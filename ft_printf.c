@@ -11,13 +11,13 @@ int	condition1(const char *fmt, int i, va_list args)
 	if (fmt[i + 1] == 'd')
                 return (condit_d(args));
         if (fmt[i + 1] == 'i')
-                return (write(1, "I", 1));
+                return (condit_d(args));
 	if (fmt[i + 1] == 'u')
-                return (write(1, "U", 1));
+                return (condit_u(args));
         if (fmt[i + 1] == 'x')
-                return (write(1, "X", 1));
+                return (condit_h(args));
 	if (fmt[i + 1] == 'X')
-                return (write(1, "*", 1));
+                return (condit_h2(args));
         if (fmt[i + 1] == '%')
                 return (write(1, "%", 1));
 	return (-1);

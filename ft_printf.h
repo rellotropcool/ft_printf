@@ -10,5 +10,9 @@ int	condit_c(va_list args);
 int	condit_s(va_list args);
 int	condit_p(va_list args);
 int	condit_d(va_list args);
+int	condit_u(va_list args);
+int	condit_h(va_list args);
+int	condit_h2(va_list args);
+
 
 #endif

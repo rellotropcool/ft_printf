@@ -6,7 +6,7 @@ FLAGS = -Wall -Wextra -Werror
 
 LIBFT = libft
 
-SOURCES = ft_printf.c condition1.c
+SOURCES = ft_printf.c condition1.c condition2.c
 
 OBJS = $(SOURCES:.c=.o)
 
